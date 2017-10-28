@@ -1,6 +1,6 @@
 
 
-# NA17 - Fiche
+# NA17 - Fiche : INTRODUCTIONS AUX BASES DE DONNEES RELATIONELLES
 
 
 ## Conception de bases de données en UML
@@ -15,6 +15,7 @@ Puis dans les méthodes on a Age = Maintenant() - dateNaiss
 Ne marquer que les clés évidentes dans le MCD
 
 **méthode :** fonction associée à une classe qui intéragit sur les objets et renvoie des valeurs. 
+*Rouler (in km:integer) : interger*
 
 **Cardinalités :**
 - 0,1 = optionel
