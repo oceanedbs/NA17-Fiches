@@ -33,6 +33,7 @@ On peut transformer un héritage en associations : 1:1 --- 0:1 ou 1:1 --- 1:1
 
 
 **Comment choisir le type de transformation de l'héritage**
+
 Si _l'héritage est complet_ : transformation par la classe mère
 - Si la classe mère est abstraite :
     Classe1(#a,b,t:{2,3})
@@ -61,7 +62,7 @@ Classe1(#a,b,c,d,e,f,t:{1,2,3})
 Classe4(#g,h,fka=>Classe1)
 Contraintes : Classe4.fka ne référence que des enregistrements tels que Classe1.t=3
 
--héritage non complet par la classe mère (et association entre les classes filles)
+- héritage non complet par la classe mère (et association entre les classes filles)
 Classe1(#a,b,c,d,e,f,fka=>Classe1,t:{1,2,3})
 Contraintes : fka ne référence que des enregistrements tels que t=2 ; si fka alors t=3
 
@@ -71,8 +72,46 @@ ATTENTION : un héritage non exclusif ne doit jamais être traité par les class
 
 ## Implémentation d'une base de donnée dans Postgres
 
-=> voir feuille papier
+=> voir fiche papier
 
 ## Algèbre relationelle
 
+**Projection** Affiche seulement les attributs précisés
+**Restriction** Selectionne seulement certains objets d'une table en fonction d'une condition
+**Produit** : a chaque ligne de table 1, associe chacune des lignes de table2
+**Jointure** : Joindre 2 tables sur une condition
 
+**Jointure Naturelle :** les attributs de la table 1 et la table 2 ont le meme nom d'attributs donc pas besoin de les spécifier. La codition de jointure est implicite.
+
+**Jointure Externe :** renvoie les tuples exclus de la jointure
+- gauche : tuples de la premiere relation et les tuples de la jointure
+- droite : tuple de la seconde relation et les tuples de la jointure
+
+**Union Externe** : permet de faire l'union de 2 relations n'ayant pas le schéma, les attributs non évalués sont mis à NULL
+
+**Différence** : Table1 et Table 2 ont le meme schéma, la différence de Table1, Table2 renvoit les tuples de R1 non présents dans R2.
+
+**Intersection** : renvoit les tuples appartenant à table1 et Table2.
+
+**Union** : renvoit une table composée de tous les tuples de table1 et table2
+
+**division** : Table1 et Table2 ont un attribut en commun, Table1 à un attribut de plus que Table2, Table3 donne les attributs de Table1 n'appartenant pas à Table2. La concaténation de table3 et Table2 donne Table1.
+
+Elle permet de répondre à l question : "donnez tous les élèveq qui ont tous les prénoms ..."
+
+<img src="division.png" width="200" height="200" />
+Sont retourné les tubles ayant comme attributs toutes les valeurs de table2.
+
+**Notation :**
+R = Union (R1, R2)
+R = Différence (R1, R2)
+R = Intersection (R1, R2)
+R = Projection (R1, A1, A2, ...)
+R = Restriction (R1, condition)
+R = Produit (R1, R2)
+R = Jointure (R1, R2, condition)
+R = JointureNaturelle (R1, R2)
+R = JointureExterne (R1, R2, condition)
+R = JointureGauche (R1, R2, condition)
+R = JointureDroite (R1, R2, condition)
+R = Division (R1, R2)
