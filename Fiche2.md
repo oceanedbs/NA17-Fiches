@@ -27,7 +27,7 @@ On peut transformer un héritage en associations : 1:1 --- 0:1 ou 1:1 --- 1:1
 *Classe2(#a,b,c,d) avec c KEY, Classe3(#a,b,e,f) avec e KEY*
 - héritage par la classe mère
 *Classe1(#a,b,c,d,e,f,t:{1,2,3}) avec c UNIQUE et e UNIQUE*
-
+<img src="heritage.png" width="200" height="200" />
 [drawing](heritage.png)
 
 **Comment choisir le type de transformation de l'héritage**
