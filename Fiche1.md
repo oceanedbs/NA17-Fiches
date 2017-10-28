@@ -6,7 +6,7 @@
 ## Conception de bases de données en UML
 
 
-Attribut multi-évalués et taille max d'un attribut : prenom[1...3]:string(15)
+**Attribut multi-évalués et taille max d'un attribut :** prenom[1...3]:string(15)
 Un objet de cette relation peut avoir 1 à 3 prénoms de taille max 15 charactères.
 
 **Attribut dérivé :** /Age : integer
@@ -38,3 +38,20 @@ Ne marquer que les clés évidentes dans le MCD
 - clé candiate : Relation(#attribut1 : domaine1, attribut2 : domaine2 ....) avec attribut2 KEY
 
 **Produit carthésien :** Toutes les lignes de R1 sont associés 1 fois à chaque ligne de R2
+
+
+## Passage UML relationel : associations
+
+**relations 1 : N :** on ajoute la clé étrangère du coté de la cardialité n
+
+**relations n:m :** on créé une nouvelle classe association 
+*ex : assoc(#a=>classe1, #b=>classe2)*
+
+**relation 1:1 :** on les traite comme des relations 1:N en ajoutant UNIQUE AND NOT NULL (ou directement KEY) sur la clé étrangère (qui devient donc une clé candidate. 
+Parfois on peut aussi fusionner les 2 relations plutôt que d'introduire une clé étrangère.
+
+**contraintes :**
+-*intégrité reférentielle :* on insert dans un attribut faisant référence ç une autre classe une valeur non présente dans cette même classe
+-*contrainte sur une clé candidate :* on viole l'unicité d'une clé candiadate
+-*contraitede non nullité :* attribut ne peut pas être nul et on l'initialise à NULL
+
