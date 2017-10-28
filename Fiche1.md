@@ -51,7 +51,40 @@ Ne marquer que les clés évidentes dans le MCD
 Parfois on peut aussi fusionner les 2 relations plutôt que d'introduire une clé étrangère.
 
 **contraintes :**
--*intégrité reférentielle :* on insert dans un attribut faisant référence ç une autre classe une valeur non présente dans cette même classe
--*contrainte sur une clé candidate :* on viole l'unicité d'une clé candiadate
--*contraitede non nullité :* attribut ne peut pas être nul et on l'initialise à NULL
+- *intégrité reférentielle :* on insert dans un attribut faisant référence à une autre classe une valeur non présente dans cette même classe
+- *contrainte sur une clé candidate :* on viole l'unicité d'une clé candiadate
+- *contraitede non nullité :* attribut ne peut pas être nul et on l'initialise à NULL
 
+## Création et Alimentation de bases de données en SQL
+
+**LDD :** language de définition de données
+*CREATE, DROP, ALTER*
+
+**LMD :** language de manipulation de données 
+*GRANT, REVOKE*
+
+**LCT :** language de contrôle de transaction
+*COMMIT, ROLLBACK**
+
+**types du SQL** : char, varchar, integer, smallint, float, real, double precision, bit, numeric(15,2) *le nombre comporte au plus 15 chiffres significatifs DONT 2 décimales*, date (AAAA-MM-DD), time, timestamp, datetime (AAAA-MM-DD HH:MM:SS), interval (intervalle de date/temps)
+ATTENTION : il vaut mieux utiliser décimal qui donne une valeur exacte que float qui donne une valeur approchée. 
+ATTENTION : char = longueure fixe, complétée par des espaces, varchar = longueur variable.
+
+**contraintes en SQL :** NOT NULL, PRIMARY KEY(..), UNIQUE(...), FOREIGN KEY (..) REFERENCES Tables(attribut), CHECK(conditions)
+Une clé candiadate est donc UNIQUE AND NOT NULL.
+
+**CREATE TABLE** 'nom table' (attribut1 : type1 PRIMARY KEY, attribut2 : type2, attribut3 : type3, ..., FOREIGN KEY (attribut3) REFERENCES table(attribut) );
+
+**INSERT INTO** 'table' (attribut1, attribut2, attribut3, ...) VALUES ('chaine1', 10, 'chaine2' ....); 
+
+**UPDATE** Table SET (attribut3="chaine4", attribut2=4) WHERE (condition);
+
+**DELETE FROM** Table < WHERE condition >
+
+**DROP**  type_de_l'objet  nom_de_l'objet;
+**DROP TABLE** Table;
+**DROP VIEW** vue;
+
+
+**ALTER TABLE** table ADD condition attribut;
+			DROP nom_attribut;
