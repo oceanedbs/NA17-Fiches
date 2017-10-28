@@ -86,5 +86,7 @@ Une clé candiadate est donc UNIQUE AND NOT NULL.
 **DROP VIEW** vue;
 
 
-**ALTER TABLE** table ADD condition attribut;
-			DROP nom_attribut;
+**ALTER TABLE** table ADD attribut type; //permet d'ajouter un attribut à une table
+			DROP nom_attribut;//supprime un attribut d'une table
+			CHANGE attribut nv_nom type;
+			MODIFY attribut nv_type;
