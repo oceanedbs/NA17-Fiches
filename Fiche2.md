@@ -90,7 +90,7 @@ ATTENTION : un héritage non exclusif ne doit jamais être traité par les class
 
 Ces jointures servent à trouver des tuples qui ne sont pas référencés dans une autre table
 
-<img src="eregistrement_non_joint.png" width="200" height="200" />
+<img src="enregistrements_non_joints.png" width="200" height="200" />
 
 **Union Externe** : permet de faire l'union de 2 relations n'ayant pas le schéma, les attributs non évalués sont mis à NULL
 
@@ -104,7 +104,7 @@ Ces jointures servent à trouver des tuples qui ne sont pas référencés dans u
 
 Elle permet de répondre à l question : "donnez tous les élèveq qui ont tous les prénoms ..."
 
-<img src="division.png" width="200" height="200" />
+<img src="division.png" width="300"  />
 Sont retourné les tubles ayant comme attributs toutes les valeurs de table2.
 
 **Notation :**
@@ -121,7 +121,7 @@ R = JointureGauche (R1, R2, condition)
 R = JointureDroite (R1, R2, condition)
 R = Division (R1, R2)
 
-<img src="recap_algèbre_relationelle.png" width="200" height="200" />
+<img src="recap_algèbre_relationelle.png" width="400" />
 
 
 ## Interrogation base de données
@@ -161,7 +161,7 @@ P IS NULL
 ## Modélisation avancée des assocaitions en UML relationel
 
 **Composition** Le cycle de vie des 2 classes sont liées si la classe composite disparait la classe partie disaprait aussi.
-<img src="composition.png" width="200" height="200" />
+<img src="composition.png" width="200" />
 Du coté de la classe partie la cardinalité peut être 0..1, 1, * ou 1...*
 Est composé de clé(s) locale(s)
 En modèle logique elle se traduit comme une association 1 : N
