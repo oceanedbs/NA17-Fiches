@@ -36,6 +36,7 @@ Ne marquer que les clés évidentes dans le MCD
 **MLD :**
 - Relation(#attribut1 : domaine1, attribut2 : domaine2 ....)
 - clé étrangères : Relation (#attribut1 : domaine1, attribut2 => table(attribut) ...) // L'attribut est précisé dans la clé étrangère si clé de la relation table composée de 2 attribut et fait référence à un seul des 2
+Proj(relation, attribut2) est inclus dans Proj(table, attribut)
 - clé candiate : Relation(#attribut1 : domaine1, attribut2 : domaine2 ....) avec attribut2 KEY
 
 **Produit carthésien :** Toutes les lignes de R1 sont associés 1 fois à chaque ligne de R2

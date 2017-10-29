@@ -83,9 +83,14 @@ ATTENTION : un héritage non exclusif ne doit jamais être traité par les class
 
 **Jointure Naturelle :** les attributs de la table 1 et la table 2 ont le meme nom d'attributs donc pas besoin de les spécifier. La codition de jointure est implicite.
 
-**Jointure Externe :** renvoie les tuples exclus de la jointure
+**Jointure Externe :** renvoie les tuples de la jointure 1 et 2 avec les attributs nulls si pas de correspondance
+<img src="jointure_externe.png" width="200" height="200" />
 - gauche : tuples de la premiere relation et les tuples de la jointure
 - droite : tuple de la seconde relation et les tuples de la jointure
+
+Ces jointures servent à trouver des tuples qui ne sont pas référencés dans une autre table
+
+<img src="eregistrement_non_joint.png" width="200" height="200" />
 
 **Union Externe** : permet de faire l'union de 2 relations n'ayant pas le schéma, les attributs non évalués sont mis à NULL
 
@@ -116,21 +121,65 @@ R = JointureGauche (R1, R2, condition)
 R = JointureDroite (R1, R2, condition)
 R = Division (R1, R2)
 
-<img src="recap_algebre_relationelle.png" width="200" height="200" />
+<img src="recap_algèbre_relationelle.png" width="200" height="200" />
 
 
 ## Interrogation base de données
 **SELECT (liste d'attributs (t1.attribut1 AS a1, ...)) FROM (liste de table (table1 t1, table2 t2, ...)) WHERE (condition)**
 
 **Expression de la condition**
-P=C
-P<>C
-P<C
-P>C
-P>=C
-P<=C
-P BETWEEN C1 AND C2
-P IN (C1, C2 ...)
-P LIKE 'chaîne' : la chaîne est décrite avec % (0 ou plusieurs caractères quelconques) et _ (1 et 1 seul caractère)
+P=C - 
+P<>C - 
+P<C - 
+P>C - 
+P>=C - 
+P<=C - 
+P BETWEEN C1 AND C2 - 
+P IN (C1, C2 ...) - 
+P LIKE 'chaîne' ( la chaîne est décrite avec % (0 ou plusieurs caractères quelconques) et _ (1 et 1 seul caractère)) - 
 P IS NULL
+
+**SELECT DISTINCT** permet d'éliminer les doublons dans la table renvoyée
+
+**ORDER BY attribut1, attribut2** les tuples sont triées selon le premier attribut puis par le second attribut en cas de doublons. Par défaut les tris sont par ordre croissant si on veut par ordre decroissont on précise DESC à la fin de l'attribut concerné par le trie décroissant.
+
+**Projection de constante** SELECTE constante ('1') AS nom (num)
+
+/* Commentaires */
+-- Commentaires
+
+**Restriction** SELECT * FROM R1 WHERE condition
+**Projection** SELECT A1, A2 FROM R1
+**Produit** SELECT * FROM R1, R2
+**Jointure** SELECT * FROM R1 INNER JOIN R2 ON R1.C=R2.X // SELECT * R1, R2, Ri WHERE condition
+**Autojointure** SELECT E1.nom FROM employé E1, employé E2 WHERE E1.nom=E2.nom
+**Jointure naturelle** SELECT * FROM R1, R2 WHERE R2.NUM = R1.NUM
+**Union** SELECT * FROM R1 UNION SELECT * FROM R2
+**Intersection**  SELECT * FROM R1 INTERSECT SELECT * FROM R2
+**Différence** SELECT * FROM R1 EXCEPT SELECT * FROM R2
+
+## Modélisation avancée des assocaitions en UML relationel
+
+**Composition** Le cycle de vie des 2 classes sont liées si la classe composite disparait la classe partie disaprait aussi.
+<img src="composition.png" width="200" height="200" />
+Du coté de la classe partie la cardinalité peut être 0..1, 1, * ou 1...*
+Est composé de clé(s) locale(s)
+En modèle logique elle se traduit comme une association 1 : N
+
+**Agréagation** Peut aussi être notée par une association n:n
+
+**Associaiton reflexive** Une classe qui s'associé à elle même, si une instance ne peut pas s'associer à elle même ajouter pk <> fk et en SQL on traduira par CHECK pk != fk
+
+**Passage des association en modèle logique**
+*association 1:1* 
+- on la traite comme une association 1:N et on ajoute la contrainte UNIQUE sur la clé étrangère (associaiton 0..1 : 1..1, associaiton 0..1 : 0...1)
+- on les fusionne en une seule classe avec la clé de l'association 2 en tant que UNIQUE ou KEY (association 1..1 : 1...1)
+
+ATTENTION : cela doit avoir du sens selon le contexte !
+
+## Modélisation conceptuelle de données avancées avec diagramme de classe UML
+
+
+
+
 
