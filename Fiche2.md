@@ -115,3 +115,22 @@ R = JointureExterne (R1, R2, condition)
 R = JointureGauche (R1, R2, condition)
 R = JointureDroite (R1, R2, condition)
 R = Division (R1, R2)
+
+<img src="recap_algebre_relationelle.png" width="200" height="200" />
+
+
+## Interrogation base de données
+**SELECT (liste d'attributs (t1.attribut1 AS a1, ...)) FROM (liste de table (table1 t1, table2 t2, ...)) WHERE (condition)**
+
+**Expression de la condition**
+P=C
+P<>C
+P<C
+P>C
+P>=C
+P<=C
+P BETWEEN C1 AND C2
+P IN (C1, C2 ...)
+P LIKE 'chaîne' : la chaîne est décrite avec % (0 ou plusieurs caractères quelconques) et _ (1 et 1 seul caractère)
+P IS NULL
+
