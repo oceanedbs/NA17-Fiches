@@ -149,13 +149,21 @@ P IS NULL
 -- Commentaires
 
 **Restriction** SELECT * FROM R1 WHERE condition
+
 **Projection** SELECT A1, A2 FROM R1
+
 **Produit** SELECT * FROM R1, R2
+
 **Jointure** SELECT * FROM R1 INNER JOIN R2 ON R1.C=R2.X // SELECT * R1, R2, Ri WHERE condition
+
 **Autojointure** SELECT E1.nom FROM employé E1, employé E2 WHERE E1.nom=E2.nom
+
 **Jointure naturelle** SELECT * FROM R1, R2 WHERE R2.NUM = R1.NUM
+
 **Union** SELECT * FROM R1 UNION SELECT * FROM R2
+
 **Intersection**  SELECT * FROM R1 INTERSECT SELECT * FROM R2
+
 **Différence** SELECT * FROM R1 EXCEPT SELECT * FROM R2
 
 ## Modélisation avancée des assocaitions en UML relationel
@@ -179,7 +187,46 @@ ATTENTION : cela doit avoir du sens selon le contexte !
 
 ## Modélisation conceptuelle de données avancées avec diagramme de classe UML
 
+**Contraintes sur les associations** : 
+- inclusion {IN} ou {SUBSET}
+- simultanéité {=}
+- exclusion {X}
+- totalité {T} ou{OR}
+- partition {XT} ou {+} ou {XOR} ou {P}
+
+**Contrainte sur les attributs**
+- {UNIQUE}
+- {FROZEN} = la valeur ne peut pas changer
+- {KEY}
+- {NOT NULL}
 
 
+**Package** : permet de regrouper les classes par "thème" et de faire différentes représentation
+- représentation globale avec tous les package
+- représentation partielle (1 package et les classes qui sont liées aux classes du package)
+- centré sur une package
+
+**Stéréotype**
+- type <<Enumération>> : valeurs que peut prendre l'énumération
+- type <<DataType>> : attributs et types des attributs du nouveau type
+
+**Contraintes sur les cardinalités**
+- Sur les cardinalités 1:N :
+	- Classe1(#a, b)
+	- Classe2(#c, d, a=> Classe1) 
+		- avec a NOT NULL et Projection(Classe1,a) inclus ou égale à Projection(Classe2, a)
+
+- Sur les cardinalités avec des classes associations et cardinalité 1:N :
+	- Classe1(#a, b)
+	- Classe2 (#c, d, a=>Classe1, e, f)
+		-avec a NOT NULL et Projection (Classe1, a) est inclus ou égale à Projection(Classe2,a)
+
+- Dans un héritage par référence
+	- Classe1(#a,b)
+	- Classe2 (#a, b, c, d) avec c KEY
+	- Classe3 (#a, b, e, f) avec e KEY
+		- avec Projection(Classe1, a) NOT IN Projection(Classe2, a) UNION Projection(Class3, a)
+
+ATTENTION , pas de projections à faire sur absorbtion par les clsses fille ou la classe mère
 
 
