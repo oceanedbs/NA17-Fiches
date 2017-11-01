@@ -347,3 +347,13 @@ Relation toute clé = l'ensemble des attributs de la table est la clé
 <img src="NF.png" width="400" />
 
 #Conception de bases de données normalisées
+
+**Décomposition 0NF -> 1NF** Décomposer en plusieurs attribut l'attribut non atomique pour les attributs composés ou en 2 relations pour les attributs multiévalués.
+
+**Décomposition 1NF -> 3NF** pour chaque DFE qui ne sont pas normalisées :
+	- la partie de gauche devient une clé primaire de R2 et une clé étrangère de R1 dans R2
+	- la partie de droite est enlevée de R1 et ajoutée comme attribut simple dans R2
+
+Si on peut remplacer un attribut par une méthode sans perdre d'informations, le faire.
+
+Dans la conception de bases de données, rétro-concevoir l'UML après avoir déterminé la 3eme forme normale du problème.
