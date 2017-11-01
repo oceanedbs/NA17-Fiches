@@ -208,25 +208,142 @@ ATTENTION : cela doit avoir du sens selon le contexte !
 
 **Stéréotype**
 - type <<Enumération>> : valeurs que peut prendre l'énumération
-- type <<DataType>> : attributs et types des attributs du nouveau type
+- type << DataType >> : attributs et types des attributs du nouveau type
 
 **Contraintes sur les cardinalités**
 - Sur les cardinalités 1:N :
 	- Classe1(#a, b)
 	- Classe2(#c, d, a=> Classe1) 
-		- avec a NOT NULL et Projection(Classe1,a) inclus ou égale à Projection(Classe2, a)
+		- avec a NOT NULL et Projection(Classe1,a) inclus ou égale à Projection(Classe2, a) si cardinalité 0,1 du coté 1, sinon les projections sont égales
 
-- Sur les cardinalités avec des classes associations et cardinalité 1:N :
+- Sur les cardinalités avec des classes associations et cardinalité 1..N:
 	- Classe1(#a, b)
 	- Classe2 (#c, d, a=>Classe1, e, f)
-		-avec a NOT NULL et Projection (Classe1, a) est inclus ou égale à Projection(Classe2,a)
+		-avec a NOT NULL et Projection (Classe1, a) égale à Projection(Classe2,a)
 
-- Dans un héritage par référence
+- Sur les cardinalités avec des classes associations et cardinalité 1..N : 1..N:
+	- Classe1(#a, b)
+	- Classe2(#c, d)
+	- Classe-Assoc (#a=>Classe1, #c=>Classe2)
+		- PROJECTION(Classe1,a) = PROJECTION(Classe-Assoc,a) AND PROJECTION(Classe2, c) = PROJECTION(Classe-Assoc,c), Si relation 0..N : 1..N seule une des 2 contraintes est exprimée
+
+
+
+- Dans un héritage par référence et classe mère abstraite
 	- Classe1(#a,b)
 	- Classe2 (#a, b, c, d) avec c KEY
 	- Classe3 (#a, b, e, f) avec e KEY
-		- avec Projection(Classe1, a) NOT IN Projection(Classe2, a) UNION Projection(Class3, a)
-
-ATTENTION , pas de projections à faire sur absorbtion par les clsses fille ou la classe mère
+		- avec Projection(Classe1, a) = Projection(Classe2, a) UNION Projection(Class3, a)
 
 
+- Dans le cas d'un héritage par les classes filles et classe mère non abstraite
+	- R1(#a,b)
+	- R2(#a,b,c,d) avec c KEY
+	- R3(#a,b,e,f) avec e KEY
+		- PROJECTION(R1,a) INTERSECTION (PROJECTION(R2,a) UNION PROJECTION(R3,a)) = {}
+
+- Heritage par les classes mère et classe mère abstraite
+	- R1(#a,b,c,d,e,f,t:{2,3})
+		- c UNIQUE et e UNIQUE AND (c NOT NULL OR e NOT NULL) AND t NOT NULL
+		- de plus si l'héritage est exclusif : (T=2 AND c),  (T=3 AND e), NOT (c AND e), NOT (c AND f)
+
+
+# Analyse de bases de données SQL avec les agrégats
+
+**Agrégat** Fonction qui permet de regrouper les enregistrements d'une relation ayant les mêmes valeurs pour un attribut
+_SELECT Societe.Nom, AVG(Personne.Age) FROM Personne, Societe WHERE Personne.NomSoc = Societe.Nom GROUP BY Societe.Nom_
+On peut mettre plusieurs attributs derrière la clause Group pour trier selon les valeurs des 2 attributs
+
+**Fonctions d'agrégation** 
+- Count(Relation.propriété) = nombre de valeurs non nulles d'une propriété pour tous les tuples de la relation
+- Sum(Relation.propriété) = Les sommes des valeurs d'une proprété des tuples d'une relation
+- Avg(Relation.propriété) = la moyenne des valeurs d'une proprété des tuples
+- Min(Relation.propriété) = la plus petite valeurs d'une propriété de la relation
+- Max(Relation.propriété) = la plus grande valeur d'une propriété de la relation.
+
+On peut appliquer plusieurs fonction dans une seule requête SQL, si on applique des des fonction, on retourne un tuple unique
+
+**Restriction**  Après le GROUP BY on peut rajouter une clause HAVING qui défini une condition sur les tuples à prendre en compte.
+
+**Ordre de résolution d'un requête SQL** 
+- FROM
+- WHERE
+- GROUP BY
+- HAVING
+- SELECT
+- ORDER BY
+
+
+#Vues et gestion des droits
+
+**Vues**: chaque application ne voit que les parties qui la concerne (+ simple et + sécurisé)
+
+**CREATE VIEW** nom_de_vue nom_des_colones AS requête_SQL
+Une vue peut avoir comme source une autre vue. 
+Une vue permet de restituer un héritage
+
+**Héritage**
+- héritage par référence : 
+	- Classe1(#a,b)
+	- Classe2(#a=>Classe1,c,d) avec c KEY
+	- Classe3(#a=>Classe1,e,f) avec e KEY
+	- vClasse2=jointure(Classe1,Classe2,a=a)
+	- vClasse3=jointure(Classe1,Classe3,a=a) 
+
+- héritage par les classes filles et classe mère abstraite
+	- Classe2(#a,b,c,d) avec c KEY
+	- Classe3(#a,b,e,f) avec e KEY
+	- vClasse1=Union(Projection(Classe2,a,b),Projection(Classe3,a,b))
+
+- héritage par les classes filles, classe mère non abstraite
+	-Classe1(#a,b)
+	- Classe2(#a,b,c,d) avec c KEY
+	- Classe3(#a,b,e,f) avec e KEY
+	- vClasse1=Union(Union(Classe1,Projection(Classe2,a,b)),Projection(Classe3,a,b)) 
+
+- héritage par la classe mère
+	- Classe1(#a,b,c,d,e,f,t:{1,2,3}) avec c UNIQUE et e UNIQUE
+	- vClasse1=projection(restriction(Classe1,t=1),a,b)
+	- vClasse2=projection(restriction(Classe1,t=2),a,b,c,d)
+	- vClasse3=projection(restriction(Classe1,t=3),a,b,e,f) 
+
+Si on peut mettre en place une méthode par une requête SQL, on la met en place à travers une vue. 
+
+
+**Les droits** 
+	- GRANT liste_de_droits ON table TO utilisateur [WITH GRANT OPTION]
+Les droits sont SELECT, INSERT, DELETE, UPDATE, ALTER (le tout = ALL PRIVILEGES)
+	- REVOKE liste_de_droits ON table FROM utilisateur
+	- CREATE USER nom
+
+# Théorie de la normalisation relationelle
+**dépendance fonctionelle** x->y définit que pour une valeur de x on aura toujours la même valeur de y.
+
+**axiomes d'Armstrong**
+- réflexivité : XY->XY et XY->X et XY->Y
+- augmentation : X->Y => XZ->YZ
+- transitivité : X->Y et Y->Z => X->Z
+- pseudo-transitivité : x->Y et WY->Z => WX->Z
+- union : X->Y et X->Z => X->YZ
+- décomposition : X->YZ => X->Z et X->Y
+
+**DF élémentaire** AB->C est élementaire si ni A ni B pris individuellement ne peuvent déterminer C et C doit être atomique
+Pour rendre une DF élementaire, on supprimer celles triviales (AB->A) on décompose les DF non élémentaire (AB->CD => AB->C, AB->D)
+
+**Fermeture transitive** notée F+ : toutes les DFE qu'on peut trouver par transitivité
+
+**Couverture minimale** ensemble minimale des DFE qui permet de générer toutes les DFE
+On peut construire un graph des DFE
+
+**clé** une clé permet de déterminer tous les  attrbuts d'une relation et il n'y a pas de partie de la clé qui permet de déterminer tous les attributs de la table.
+Relation toute clé = l'ensemble des attributs de la table est la clé
+
+**Forme normale** 
+- première forme normale : possède une clé et tous ses attribut sont atomiques (une seule valeur dans chaque case)
+- deuxième forme normale : est en 1NF et une partie de la clé ne détermine pas un attribut non clé.
+- troisième forme normale : est en 2NF et tous les attributs non clé dépendent des attributs clé. (Pas d'attributs non clé qui déterminent un attribut non clé)
+- Boyce-Codd : est en 3NF et tous les attributs sont de la forme clé->attribut non clé
+
+<img src="NF.png" width="400" />
+
+#Conception de bases de données normalisées
