@@ -9,13 +9,13 @@
 
 **héritage complet :** les classes filles n'ont aucunes caractéristiques qui leurs sont propres. Elles ont les même attributs
 
-**héritage presque complet :** les classes filles ont le même nombre d'attributs et aucune autre association leur est lié. 
+**héritage presque complet :** les classes filles ont le même nombre d'attributs et aucune autre association leur est lié.
 
 **héritage exclusif :** l'objet instancié appartiet à une seule des classes hérités.
 
-**héritage non exclusif :** un objet peut appartenir aux 2 clases héritées. 
+**héritage non exclusif :** un objet peut appartenir aux 2 clases héritées.
 
-**héritage multiple :** une classe fille peut ériter de plusieurs de plusieurs classes mères 
+**héritage multiple :** une classe fille peut ériter de plusieurs de plusieurs classes mères
 ATTENTION : toujours justifier l'utilisation de l'héritage multiple
 
 On peut transformer un héritage en associations : 1:1 --- 0:1 ou 1:1 --- 1:1
@@ -29,7 +29,7 @@ On peut transformer un héritage en associations : 1:1 --- 0:1 ou 1:1 --- 1:1
 *Classe2(#a,b,c,d) avec c KEY, Classe3(#a,b,e,f) avec e KEY*
 - héritage par la classe mère
 *Classe1(#a,b,c,d,e,f,t:{1,2,3}) avec c UNIQUE et e UNIQUE*
-<img src="heritage.png" width="200" height="200" />
+<img src="heritage.png" width="200" />
 
 
 **Comment choisir le type de transformation de l'héritage**
@@ -38,15 +38,15 @@ Si _l'héritage est complet_ : transformation par la classe mère
 - Si la classe mère est abstraite :
     Classe1(#a,b,t:{2,3})
 - Si la classe mère n'est pas abstraite :
-    Classe1(#a,b,t:{1,2,3}) 
+    Classe1(#a,b,t:{1,2,3})
 Si _l'héritage est non compet, que la classe mère est abstraite_ et sans associations, héritage par les classes filles :
 Classe2(#a,b,c,d) avec c KEY
 Classe3(#a,b,e,f) avec e KEY
 
-Si _l'héritage est non complet et que la classe mère est non abstraite_ et sans associations héritage par référence : 
+Si _l'héritage est non complet et que la classe mère est non abstraite_ et sans associations héritage par référence :
 Classe1(#a,b)
 Classe2(#a,b,c,d) avec c KEY
-Classe3(#a,b,e,f,fka=>Classe2) avec e KEY 
+Classe3(#a,b,e,f,fka=>Classe2) avec e KEY
 
 Si _l'héritage est presque complet_ on peut transformer par la classe mère :
 Classe1(#a,b,c,d,e,f,t:{1,2,3})
@@ -67,7 +67,7 @@ Classe1(#a,b,c,d,e,f,fka=>Classe1,t:{1,2,3})
 Contraintes : fka ne référence que des enregistrements tels que t=2 ; si fka alors t=3
 
 
-ATTENTION : un héritage non exclusif ne doit jamais être traité par les classes filles. 
+ATTENTION : un héritage non exclusif ne doit jamais être traité par les classes filles.
 
 
 ## Implémentation d'une base de donnée dans Postgres
@@ -84,13 +84,13 @@ ATTENTION : un héritage non exclusif ne doit jamais être traité par les class
 **Jointure Naturelle :** les attributs de la table 1 et la table 2 ont le meme nom d'attributs donc pas besoin de les spécifier. La codition de jointure est implicite.
 
 **Jointure Externe :** renvoie les tuples de la jointure 1 et 2 avec les attributs nulls si pas de correspondance
-<img src="jointure_externe.png" width="200" height="200" />
+<img src="jointure_externe.png" width="400" />
 - gauche : tuples de la premiere relation et les tuples de la jointure
 - droite : tuple de la seconde relation et les tuples de la jointure
 
 Ces jointures servent à trouver des tuples qui ne sont pas référencés dans une autre table
 
-<img src="enregistrements_non_joints.png" width="200" height="200" />
+<img src="enregistrements_non-joints.png" width="400"  />
 
 **Union Externe** : permet de faire l'union de 2 relations n'ayant pas le schéma, les attributs non évalués sont mis à NULL
 
@@ -102,9 +102,11 @@ Ces jointures servent à trouver des tuples qui ne sont pas référencés dans u
 
 **division** : Table1 et Table2 ont un attribut en commun, Table1 à un attribut de plus que Table2, Table3 donne les attributs de Table1 n'appartenant pas à Table2. La concaténation de table3 et Table2 donne Table1.
 
-Elle permet de répondre à l question : "donnez tous les élèveq qui ont tous les prénoms ..."
+Elle permet de répondre à la question : "donnez tous les élèveq qui ont tous les prénoms ..."
 
 <img src="division.png" width="300"  />
+
+
 Sont retourné les tubles ayant comme attributs toutes les valeurs de table2.
 
 **Notation :**
@@ -121,22 +123,22 @@ R = JointureGauche (R1, R2, condition)
 R = JointureDroite (R1, R2, condition)
 R = Division (R1, R2)
 
-<img src="recap_algèbre_relationelle.png" width="400" />
+<img src="recap_algèbre_relationelle.png" width="600" />
 
 
 ## Interrogation base de données
 **SELECT (liste d'attributs (t1.attribut1 AS a1, ...)) FROM (liste de table (table1 t1, table2 t2, ...)) WHERE (condition)**
 
 **Expression de la condition**
-P=C - 
-P<>C - 
-P<C - 
-P>C - 
-P>=C - 
-P<=C - 
-P BETWEEN C1 AND C2 - 
-P IN (C1, C2 ...) - 
-P LIKE 'chaîne' ( la chaîne est décrite avec % (0 ou plusieurs caractères quelconques) et _ (1 et 1 seul caractère)) - 
+P=C -
+P<>C -
+P<C -
+P>C -
+P>=C -
+P<=C -
+P BETWEEN C1 AND C2 -
+P IN (C1, C2 ...) -
+P LIKE 'chaîne' ( la chaîne est décrite avec % (0 ou plusieurs caractères quelconques) et _ (1 et 1 seul caractère)) -
 P IS NULL
 
 **SELECT DISTINCT** permet d'éliminer les doublons dans la table renvoyée
@@ -179,7 +181,7 @@ En modèle logique elle se traduit comme une association 1 : N
 **Associaiton reflexive** Une classe qui s'associé à elle même, si une instance ne peut pas s'associer à elle même ajouter pk <> fk et en SQL on traduira par CHECK pk != fk
 
 **Passage des association en modèle logique**
-*association 1:1* 
+*association 1:1*
 - on la traite comme une association 1:N et on ajoute la contrainte UNIQUE sur la clé étrangère (associaiton 0..1 : 1..1, associaiton 0..1 : 0...1)
 - on les fusionne en une seule classe avec la clé de l'association 2 en tant que UNIQUE ou KEY (association 1..1 : 1...1)
 
@@ -187,7 +189,7 @@ ATTENTION : cela doit avoir du sens selon le contexte !
 
 ## Modélisation conceptuelle de données avancées avec diagramme de classe UML
 
-**Contraintes sur les associations** : 
+**Contraintes sur les associations** :
 - inclusion {IN} ou {SUBSET}
 - simultanéité {=}
 - exclusion {X}
@@ -213,7 +215,7 @@ ATTENTION : cela doit avoir du sens selon le contexte !
 **Contraintes sur les cardinalités**
 - Sur les cardinalités 1:N :
 	- Classe1(#a, b)
-	- Classe2(#c, d, a=> Classe1) 
+	- Classe2(#c, d, a=> Classe1)
 		- avec a NOT NULL et Projection(Classe1,a) inclus ou égale à Projection(Classe2, a) si cardinalité 0,1 du coté 1, sinon les projections sont égales
 
 - Sur les cardinalités avec des classes associations et cardinalité 1..N:
@@ -254,7 +256,7 @@ ATTENTION : cela doit avoir du sens selon le contexte !
 _SELECT Societe.Nom, AVG(Personne.Age) FROM Personne, Societe WHERE Personne.NomSoc = Societe.Nom GROUP BY Societe.Nom_
 On peut mettre plusieurs attributs derrière la clause Group pour trier selon les valeurs des 2 attributs
 
-**Fonctions d'agrégation** 
+**Fonctions d'agrégation**
 - Count(Relation.propriété) = nombre de valeurs non nulles d'une propriété pour tous les tuples de la relation
 - Sum(Relation.propriété) = Les sommes des valeurs d'une proprété des tuples d'une relation
 - Avg(Relation.propriété) = la moyenne des valeurs d'une proprété des tuples
@@ -265,7 +267,7 @@ On peut appliquer plusieurs fonction dans une seule requête SQL, si on applique
 
 **Restriction**  Après le GROUP BY on peut rajouter une clause HAVING qui défini une condition sur les tuples à prendre en compte.
 
-**Ordre de résolution d'un requête SQL** 
+**Ordre de résolution d'un requête SQL**
 - FROM
 - WHERE
 - GROUP BY
@@ -279,16 +281,16 @@ On peut appliquer plusieurs fonction dans une seule requête SQL, si on applique
 **Vues**: chaque application ne voit que les parties qui la concerne (+ simple et + sécurisé)
 
 **CREATE VIEW** nom_de_vue nom_des_colones AS requête_SQL
-Une vue peut avoir comme source une autre vue. 
+Une vue peut avoir comme source une autre vue.
 Une vue permet de restituer un héritage
 
 **Héritage**
-- héritage par référence : 
+- héritage par référence :
 	- Classe1(#a,b)
 	- Classe2(#a=>Classe1,c,d) avec c KEY
 	- Classe3(#a=>Classe1,e,f) avec e KEY
 	- vClasse2=jointure(Classe1,Classe2,a=a)
-	- vClasse3=jointure(Classe1,Classe3,a=a) 
+	- vClasse3=jointure(Classe1,Classe3,a=a)
 
 - héritage par les classes filles et classe mère abstraite
 	- Classe2(#a,b,c,d) avec c KEY
@@ -299,20 +301,20 @@ Une vue permet de restituer un héritage
 	-Classe1(#a,b)
 	- Classe2(#a,b,c,d) avec c KEY
 	- Classe3(#a,b,e,f) avec e KEY
-	- vClasse1=Union(Union(Classe1,Projection(Classe2,a,b)),Projection(Classe3,a,b)) 
+	- vClasse1=Union(Union(Classe1,Projection(Classe2,a,b)),Projection(Classe3,a,b))
 
 - héritage par la classe mère
 	- Classe1(#a,b,c,d,e,f,t:{1,2,3}) avec c UNIQUE et e UNIQUE
 	- vClasse1=projection(restriction(Classe1,t=1),a,b)
 	- vClasse2=projection(restriction(Classe1,t=2),a,b,c,d)
-	- vClasse3=projection(restriction(Classe1,t=3),a,b,e,f) 
+	- vClasse3=projection(restriction(Classe1,t=3),a,b,e,f)
 
-Si on peut mettre en place une méthode par une requête SQL, on la met en place à travers une vue. 
+Si on peut mettre en place une méthode par une requête SQL, on la met en place à travers une vue.
 
 
-**Les droits** 
+**Les droits**
 	- GRANT liste_de_droits ON table TO utilisateur [WITH GRANT OPTION]
-Les droits sont SELECT, INSERT, DELETE, UPDATE, ALTER (le tout = ALL PRIVILEGES)
+Les droits sont SELECT (droits de lecture), INSERT, DELETE, UPDATE, ALTER (le tout = ALL PRIVILEGES)
 	- REVOKE liste_de_droits ON table FROM utilisateur
 	- CREATE USER nom
 
@@ -338,7 +340,7 @@ On peut construire un graph des DFE
 **clé** une clé permet de déterminer tous les  attrbuts d'une relation et il n'y a pas de partie de la clé qui permet de déterminer tous les attributs de la table.
 Relation toute clé = l'ensemble des attributs de la table est la clé
 
-**Forme normale** 
+**Forme normale**
 - première forme normale : possède une clé et tous ses attribut sont atomiques (une seule valeur dans chaque case)
 - deuxième forme normale : est en 1NF et une partie de la clé ne détermine pas un attribut non clé.
 - troisième forme normale : est en 2NF et tous les attributs non clé dépendent des attributs clé. (Pas d'attributs non clé qui déterminent un attribut non clé)
