@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Fiche2</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(155, 160, 157); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: white; }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(155, 160, 157); border-color: rgb(67, 72, 76); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(67, 72, 76); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(67, 72, 76); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(48, 51, 55); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(39, 41, 44); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(67, 72, 76) rgb(67, 72, 76) rgb(53, 57, 60); border-image: initial; background-color: rgb(48, 51, 55); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.0392157); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #1d1f21;
+  color: #c5c8c6;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(197, 200, 198, 0.2);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(197, 200, 198, 0.2);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(197, 200, 198, 0.1);
+}
+pre.editor-colors .gutter {
+  background-color: #292c2f;
+}
+pre.editor-colors .gutter .cursor-line {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+pre.editor-colors .line-number.cursor-line-no-selection {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #fba0e3;
+}
+pre.editor-colors .invisible {
+  color: #c5c8c6;
+}
+pre.editor-colors .cursor {
+  border-color: white;
+}
+pre.editor-colors .selection .region {
+  background-color: #444;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #f8de7e;
+  margin-top: -1px;
+  opacity: .7;
+}
+pre.editor-colors .syntax--source.syntax--gfm {
+  color: #999;
+}
+pre.editor-colors .syntax--gfm .syntax--markup.syntax--heading {
+  color: #eee;
+}
+pre.editor-colors .syntax--gfm .syntax--link {
+  color: #555;
+}
+pre.editor-colors .syntax--gfm .syntax--variable.syntax--list,
+pre.editor-colors .syntax--gfm .syntax--support.syntax--quote {
+  color: #555;
+}
+pre.editor-colors .syntax--gfm .syntax--link .syntax--entity {
+  color: #ddd;
+}
+pre.editor-colors .syntax--gfm .syntax--raw {
+  color: #aaa;
+}
+pre.editor-colors .syntax--markdown .syntax--paragraph {
+  color: #999;
+}
+pre.editor-colors .syntax--markdown .syntax--heading {
+  color: #eee;
+}
+pre.editor-colors .syntax--markdown .syntax--raw {
+  color: #aaa;
+}
+pre.editor-colors .syntax--markdown .syntax--link {
+  color: #555;
+}
+pre.editor-colors .syntax--markdown .syntax--link .syntax--string {
+  color: #555;
+}
+pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title {
+  color: #ddd;
+}
+.syntax--comment {
+  color: #7C7C7C;
+}
+.syntax--entity {
+  color: #FFD2A7;
+}
+.syntax--entity.syntax--name.syntax--type {
+  text-decoration: underline;
+  color: #FFFFB6;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #9B5C2E;
+}
+.syntax--keyword {
+  color: #96CBFE;
+}
+.syntax--keyword.syntax--control {
+  color: #96CBFE;
+}
+.syntax--keyword.syntax--operator {
+  color: #EDEDED;
+}
+.syntax--storage {
+  color: #CFCB90;
+}
+.syntax--storage.syntax--modifier {
+  color: #96CBFE;
+}
+.syntax--constant {
+  color: #99CC99;
+}
+.syntax--constant.syntax--numeric {
+  color: #FF73FD;
+}
+.syntax--variable {
+  color: #C6C5FE;
+}
+.syntax--invalid.syntax--deprecated {
+  text-decoration: underline;
+  color: #FD5FF1;
+}
+.syntax--invalid.syntax--illegal {
+  color: #FD5FF1;
+  background-color: rgba(86, 45, 86, 0.75);
+}
+.syntax--string .syntax--source,
+.syntax--string .syntax--meta.syntax--embedded.syntax--line {
+  color: #EDEDED;
+}
+.syntax--string .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #00A0A0;
+}
+.syntax--string .syntax--punctuation.syntax--section.syntax--embedded .syntax--source {
+  color: #00A0A0;
+}
+.syntax--string {
+  color: #A8FF60;
+}
+.syntax--string .syntax--constant {
+  color: #00A0A0;
+}
+.syntax--string.syntax--regexp {
+  color: #E9C062;
+}
+.syntax--string.syntax--regexp .syntax--constant.syntax--character.syntax--escape,
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded,
+.syntax--string.syntax--regexp .syntax--string.syntax--regexp.syntax--arbitrary-repetition {
+  color: #FF8000;
+}
+.syntax--string.syntax--regexp.syntax--group {
+  color: #C6A24F;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+.syntax--string.syntax--regexp.syntax--character-class {
+  color: #B18A3D;
+}
+.syntax--string .syntax--variable {
+  color: #8A9A95;
+}
+.syntax--support {
+  color: #FFFFB6;
+}
+.syntax--support.syntax--function {
+  color: #DAD085;
+}
+.syntax--support.syntax--constant {
+  color: #FFD2A7;
+}
+.syntax--support.syntax--type.syntax--property-name.syntax--css {
+  color: #EDEDED;
+}
+.syntax--source .syntax--entity.syntax--name.syntax--tag,
+.syntax--source .syntax--punctuation.syntax--tag {
+  color: #96CBFE;
+}
+.syntax--source .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #C6C5FE;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #C6C5FE;
+}
+.syntax--entity.syntax--name.syntax--tag.syntax--namespace,
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--namespace {
+  color: #E18964;
+}
+.syntax--meta.syntax--preprocessor.syntax--c {
+  color: #8996A8;
+}
+.syntax--meta.syntax--preprocessor.syntax--c .syntax--keyword {
+  color: #AFC4DB;
+}
+.syntax--meta.syntax--cast {
+  color: #676767;
+}
+.syntax--meta.syntax--sgml.syntax--html .syntax--meta.syntax--doctype,
+.syntax--meta.syntax--sgml.syntax--html .syntax--meta.syntax--doctype .syntax--entity,
+.syntax--meta.syntax--sgml.syntax--html .syntax--meta.syntax--doctype .syntax--string,
+.syntax--meta.syntax--xml-processing,
+.syntax--meta.syntax--xml-processing .syntax--entity,
+.syntax--meta.syntax--xml-processing .syntax--string {
+  color: #494949;
+}
+.syntax--meta.syntax--tag .syntax--entity,
+.syntax--meta.syntax--tag > .syntax--punctuation,
+.syntax--meta.syntax--tag.syntax--inline .syntax--entity {
+  color: #C6C5FE;
+}
+.syntax--meta.syntax--tag .syntax--name,
+.syntax--meta.syntax--tag.syntax--inline .syntax--name,
+.syntax--meta.syntax--tag > .syntax--punctuation {
+  color: #96CBFE;
+}
+.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--name.syntax--tag {
+  text-decoration: underline;
+  color: #96CBFE;
+}
+.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--other.syntax--attribute-name.syntax--tag.syntax--pseudo-class {
+  color: #8F9D6A;
+}
+.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #8B98AB;
+}
+.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--other.syntax--attribute-name.syntax--class {
+  color: #62B1FE;
+}
+.syntax--meta.syntax--property-group .syntax--support.syntax--constant.syntax--property-value.syntax--css,
+.syntax--meta.syntax--property-value .syntax--support.syntax--constant.syntax--property-value.syntax--css {
+  color: #F9EE98;
+}
+.syntax--meta.syntax--preprocessor.syntax--at-rule .syntax--keyword.syntax--control.syntax--at-rule {
+  color: #8693A5;
+}
+.syntax--meta.syntax--property-value .syntax--support.syntax--constant.syntax--named-color.syntax--css,
+.syntax--meta.syntax--property-value .syntax--constant {
+  color: #87C38A;
+}
+.syntax--meta.syntax--constructor.syntax--argument.syntax--css {
+  color: #8F9D6A;
+}
+.syntax--meta.syntax--diff,
+.syntax--meta.syntax--diff.syntax--header {
+  color: #F8F8F8;
+  background-color: #0E2231;
+}
+.syntax--meta.syntax--separator {
+  color: #60A633;
+  background-color: #242424;
+}
+.syntax--meta.syntax--line.syntax--entry.syntax--logfile,
+.syntax--meta.syntax--line.syntax--exit.syntax--logfile {
+  background-color: rgba(238, 238, 238, 0.16);
+}
+.syntax--meta.syntax--line.syntax--error.syntax--logfile {
+  background-color: #751012;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="na17-fiche-conception-de-donn-es-relationnelles">NA17 - Fiche : CONCEPTION DE DONNÉES RELATIONNELLES</h1>
+<h2 id="l-h-ritage">L'héritage</h2>
+<p><strong>héritage :</strong> transmission des propriété d'une classe à l'autre, permet de factoriser les classes. N'a pas de verbe associé à l'association, oralement on peut dire "est un"</p>
+<p><strong>classe abstraite</strong> classe non instanciable, n'a de sens que si une autre classe en hérite. Elle correspond à un groupe général de classes (<em>ex : mammifères</em>)</p>
+<p><strong>héritage complet :</strong> les classes filles n'ont aucunes caractéristiques qui leurs sont propres. Elles ont les même attributs</p>
+<p><strong>héritage presque complet :</strong> les classes filles ont le même nombre d'attributs et aucune autre association leur est lié.</p>
+<p><strong>héritage exclusif :</strong> l'objet instancié appartient à une seule des classes hérités.</p>
+<p><strong>héritage non exclusif :</strong> un objet peut appartenir aux 2 classes héritées.</p>
+<p><strong>héritage multiple :</strong> une classe fille peut hériter de plusieurs de plusieurs classes mères
+ATTENTION : toujours justifier l'utilisation de l'héritage multiple</p>
+<p>On peut transformer un héritage en associations : 1:1 --- 0:1 ou 1:1 --- 1:1</p>
+<h2 id="transformation-de-l-h-ritage-en-relationnel">Transformation de l'héritage en relationnel</h2>
+<p><strong>Transformation de l'héritage</strong></p>
+<ul>
+<li>référence entre la classe mère et la classe fille
+<em>Classe1(#a,b), Classe2(#a=&gt;Classe1,c,d) avec c KEY, Classe3(#a=&gt;Classe1,e,f) avec e KEY</em></li>
+<li>héritage par les classes filles
+<em>Classe2(#a,b,c,d) avec c KEY, Classe3(#a,b,e,f) avec e KEY</em></li>
+<li>héritage par la classe mère
+<em>Classe1(#a,b,c,d,e,f,t:{1,2,3}) avec c UNIQUE et e UNIQUE</em>
+<img width="200" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/heritage.png"></li>
+</ul>
+<p><strong>Comment choisir le type de transformation de l'héritage</strong></p>
+<p>Si <em>l'héritage est complet</em> : transformation par la classe mère</p>
+<ul>
+<li>Si la classe mère est abstraite :
+  Classe1(#a,b,t:{2,3})</li>
+<li>Si la classe mère n'est pas abstraite :
+  Classe1(#a,b,t:{1,2,3})
+Si <em>l'héritage est non compet, que la classe mère est abstraite</em> et sans associations, héritage par les classes filles :
+Classe2(#a,b,c,d) avec c KEY
+Classe3(#a,b,e,f) avec e KEY</li>
+</ul>
+<p>Si <em>l'héritage est non complet et que la classe mère est non abstraite</em> et sans associations héritage par référence :
+Classe1(#a,b)
+Classe2(#a,b,c,d) avec c KEY
+Classe3(#a,b,e,f,fka=&gt;Classe2) avec e KEY</p>
+<p>Si <em>l'héritage est presque complet</em> on peut transformer par la classe mère :
+Classe1(#a,b,c,d,e,f,t:{1,2,3})</p>
+<p><strong>Cas problématiques</strong></p>
+<ul>
+<li>association sur la classe mère et héritage par les classes filles :
+Classe2(#a,b,c,d) avec c KEY
+Classe3(#a,b,e,f) avec e KEY
+Classe4(#g,h,fka=&gt;Classe2, fkb=&gt;Classe3)
+Contrainte : fka OR fkb</li>
+<li><p>héritage non complet par la classe mère (association M:N ou 1:N sur une classe fille)
+Classe1(#a,b,c,d,e,f,t:{1,2,3})
+Classe4(#g,h,fka=&gt;Classe1)
+Contraintes : Classe4.fka ne référence que des enregistrements tels que Classe1.t=3</p>
+</li>
+<li><p>héritage non complet par la classe mère (et association entre les classes filles)
+Classe1(#a,b,c,d,e,f,fka=&gt;Classe1,t:{1,2,3})
+Contraintes : fka ne référence que des enregistrements tels que t=2 ; si fka alors t=3</p>
+</li>
+</ul>
+<p>ATTENTION : un héritage non exclusif ne doit jamais être traité par les classes filles.</p>
+<h2 id="impl-mentation-d-une-base-de-donn-e-dans-postgres">Implémentation d'une base de donnée dans Postgres</h2>
+<p>=&gt; voir fiche papier</p>
+<h2 id="alg-bre-relationnelle">Algèbre relationnelle</h2>
+<p><strong>Projection</strong> Affiche seulement les attributs précisés
+<strong>Restriction</strong> Sélectionne seulement certains objets d'une table en fonction d'une condition
+<strong>Produit</strong> : a chaque ligne de table 1, associe chacune des lignes de table2
+<strong>Jointure</strong> : Joindre 2 tables sur une condition</p>
+<p><strong>Jointure Naturelle :</strong> les attributs de la table 1 et la table 2 ont le même nom d'attributs donc pas besoin de les spécifier. La condition de jointure est implicite.</p>
+<p><strong>Jointure Externe :</strong> renvoie les tuples de la jointure 1 et 2 avec les attributs nulls si pas de correspondance
+<img width="400" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/jointure_externe.png"></p>
+<ul>
+<li>gauche : tuples de la première relation et les tuples de la jointure</li>
+<li>droite : tuple de la seconde relation et les tuples de la jointure</li>
+</ul>
+<p>Ces jointures servent à trouver des tuples qui ne sont pas référencés dans une autre table</p>
+<p><img width="400" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/enregistrements_non-joints.png">
+<img width="400" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/jointure.png"></p>
+<p>Par Arbeck — Travail personnel, CC BY 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=25555796">https://commons.wikimedia.org/w/index.php?curid=25555796</a></p>
+<p><strong>Union Externe</strong> : permet de faire l'union de 2 relations n'ayant pas le schéma, les attributs non évalués sont mis à NULL</p>
+<p><strong>Différence</strong> : Table1 et Table 2 ont le meme schéma, la différence de Table1, Table2 renvoit les tuples de R1 non présents dans R2.</p>
+<p><strong>Intersection</strong> : renvoit les tuples appartenant à table1 et Table2.</p>
+<p><strong>Union</strong> : renvoit une table composée de tous les tuples de table1 et table2</p>
+<p><strong>division</strong> : Table1 et Table2 ont un attribut en commun, Table1 à un attribut de plus que Table2, Table3 donne les attributs de Table1 n'appartenant pas à Table2. La concaténation de table3 et Table2 donne Table1.</p>
+<p>Elle permet de répondre à la question : "donnez tous les élèveq qui ont tous les prénoms ..."</p>
+<p><img width="300" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/division.png"></p>
+<p>Sont retourné les tubles ayant comme attributs toutes les valeurs de table2.</p>
+<p><strong>Notation :</strong>
+R = Union (R1, R2)
+R = Différence (R1, R2)
+R = Intersection (R1, R2)
+R = Projection (R1, A1, A2, ...)
+R = Restriction (R1, condition)
+R = Produit (R1, R2)
+R = Jointure (R1, R2, condition)
+R = JointureNaturelle (R1, R2)
+R = JointureExterne (R1, R2, condition)
+R = JointureGauche (R1, R2, condition)
+R = JointureDroite (R1, R2, condition)
+R = Division (R1, R2)</p>
+<p><img width="600" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/recap_algèbre_relationelle.png"></p>
+<h2 id="interrogation-base-de-donn-es">Interrogation base de données</h2>
+<p><strong>SELECT (liste d'attributs (t1.attribut1 AS a1, ...)) FROM (liste de table (table1 t1, table2 t2, ...)) WHERE (condition)</strong></p>
+<p><strong>Expression de la condition</strong>
+P=C -
+P&lt;&gt;C -
+PC -
+P&gt;=C -
+P&lt;=C -
+P BETWEEN C1 AND C2 -
+P IN (C1, C2 ...) -
+P LIKE 'chaîne' ( la chaîne est décrite avec % (0 ou plusieurs caractères quelconques) et _ (1 et 1 seul caractère)) -
+P IS NULL</p>
+<p><strong>SELECT DISTINCT</strong> permet d'éliminer les doublons dans la table renvoyée</p>
+<p><strong>ORDER BY attribut1, attribut2</strong> les tuples sont triées selon le premier attribut puis par le second attribut en cas de doublons. Par défaut les tris sont par ordre croissant si on veut par ordre decroissont on précise DESC à la fin de l'attribut concerné par le trie décroissant.</p>
+<p><strong>Projection de constante</strong> SELECTE constante ('1') AS nom (num)</p>
+<p>/<em> Commentaires </em>/
+-- Commentaires</p>
+<p><strong>Restriction</strong> SELECT * FROM R1 WHERE condition</p>
+<p><strong>Projection</strong> SELECT A1, A2 FROM R1</p>
+<p><strong>Produit</strong> SELECT * FROM R1, R2</p>
+<p><strong>Jointure</strong> SELECT <em> FROM R1 INNER JOIN R2 ON R1.C=R2.X // SELECT </em> R1, R2, Ri WHERE condition</p>
+<p><strong>Autojointure</strong> SELECT E1.nom FROM employé E1, employé E2 WHERE E1.nom=E2.nom</p>
+<p><strong>Jointure naturelle</strong> SELECT * FROM R1, R2 WHERE R2.NUM = R1.NUM</p>
+<p><strong>Union</strong> SELECT <em> FROM R1 UNION SELECT </em> FROM R2</p>
+<p><strong>Intersection</strong>  SELECT <em> FROM R1 INTERSECT SELECT </em> FROM R2</p>
+<p><strong>Différence</strong> SELECT <em> FROM R1 EXCEPT SELECT </em> FROM R2</p>
+<h2 id="mod-lisation-avanc-e-des-assocaitions-en-uml-relationel">Modélisation avancée des assocaitions en UML relationel</h2>
+<p><strong>Composition</strong> Le cycle de vie des 2 classes sont liées si la classe composite disparait la classe partie disaprait aussi.
+<img width="200" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/composition.png">
+Du coté de la classe partie la cardinalité peut être 0..1, 1, <em> ou 1...</em>
+Est composé de clé(s) locale(s)
+En modèle logique elle se traduit comme une association 1 : N</p>
+<p><strong>Agréagation</strong> Peut aussi être notée par une association n:n</p>
+<p><strong>Associaiton reflexive</strong> Une classe qui s'associé à elle même, si une instance ne peut pas s'associer à elle même ajouter pk &lt;&gt; fk et en SQL on traduira par CHECK pk != fk</p>
+<p><strong>Passage des association en modèle logique</strong>
+<em>association 1:1</em></p>
+<ul>
+<li>on la traite comme une association 1:N et on ajoute la contrainte UNIQUE sur la clé étrangère (associaiton 0..1 : 1..1, associaiton 0..1 : 0...1)</li>
+<li>on les fusionne en une seule classe avec la clé de l'association 2 en tant que UNIQUE ou KEY (association 1..1 : 1...1)</li>
+</ul>
+<p>ATTENTION : cela doit avoir du sens selon le contexte !</p>
+<h2 id="mod-lisation-conceptuelle-de-donn-es-avanc-es-avec-diagramme-de-classe-uml">Modélisation conceptuelle de données avancées avec diagramme de classe UML</h2>
+<p><strong>Contraintes sur les associations</strong> :</p>
+<ul>
+<li>inclusion {IN} ou {SUBSET}</li>
+<li>simultanéité {=}</li>
+<li>exclusion {X}</li>
+<li>totalité {T} ou{OR}</li>
+<li>partition {XT} ou {+} ou {XOR} ou {P}</li>
+</ul>
+<p><strong>Contrainte sur les attributs</strong></p>
+<ul>
+<li>{UNIQUE}</li>
+<li>{FROZEN} = la valeur ne peut pas changer</li>
+<li>{KEY}</li>
+<li>{NOT NULL}</li>
+</ul>
+<p><strong>Package</strong> : permet de regrouper les classes par "thème" et de faire différentes représentation</p>
+<ul>
+<li>représentation globale avec tous les package</li>
+<li>représentation partielle (1 package et les classes qui sont liées aux classes du package)</li>
+<li>centré sur une package</li>
+</ul>
+<p><strong>Stéréotype</strong></p>
+<ul>
+<li>type &lt;&gt; : valeurs que peut prendre l'énumération</li>
+<li>type &lt;&lt; DataType &gt;&gt; : attributs et types des attributs du nouveau type</li>
+</ul>
+<p><strong>Contraintes sur les cardinalités</strong></p>
+<ul>
+<li><p>Sur les cardinalités 1:N :</p>
+<ul>
+<li>Classe1(#a, b)</li>
+<li>Classe2(#c, d, a=&gt; Classe1)<ul>
+<li>avec a NOT NULL et Projection(Classe1,a) inclus ou égale à Projection(Classe2, a) si cardinalité 0,1 du coté 1, sinon les projections sont égales</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Sur les cardinalités avec des classes associations et cardinalité 1..N:</p>
+<ul>
+<li>Classe1(#a, b)</li>
+<li>Classe2 (#c, d, a=&gt;Classe1, e, f)
+  -avec a NOT NULL et Projection (Classe1, a) égale à Projection(Classe2,a)</li>
+</ul>
+</li>
+<li><p>Sur les cardinalités avec des classes associations et cardinalité 1..N : 1..N:</p>
+<ul>
+<li>Classe1(#a, b)</li>
+<li>Classe2(#c, d)</li>
+<li>Classe-Assoc (#a=&gt;Classe1, #c=&gt;Classe2)<ul>
+<li>PROJECTION(Classe1,a) = PROJECTION(Classe-Assoc,a) AND PROJECTION(Classe2, c) = PROJECTION(Classe-Assoc,c), Si relation 0..N : 1..N seule une des 2 contraintes est exprimée</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Dans un héritage par référence et classe mère abstraite<ul>
+<li>Classe1(#a,b)</li>
+<li>Classe2 (#a, b, c, d) avec c KEY</li>
+<li>Classe3 (#a, b, e, f) avec e KEY<ul>
+<li>avec Projection(Classe1, a) = Projection(Classe2, a) UNION Projection(Class3, a)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Dans le cas d'un héritage par les classes filles et classe mère non abstraite</p>
+<ul>
+<li>R1(#a,b)</li>
+<li>R2(#a,b,c,d) avec c KEY</li>
+<li>R3(#a,b,e,f) avec e KEY<ul>
+<li>PROJECTION(R1,a) INTERSECTION (PROJECTION(R2,a) UNION PROJECTION(R3,a)) = {}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Heritage par les classes mère et classe mère abstraite</p>
+<ul>
+<li>R1(#a,b,c,d,e,f,t:{2,3})<ul>
+<li>c UNIQUE et e UNIQUE AND (c NOT NULL OR e NOT NULL) AND t NOT NULL</li>
+<li>de plus si l'héritage est exclusif : (T=2 AND c),  (T=3 AND e), NOT (c AND e), NOT (c AND f)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="analyse-de-bases-de-donn-es-sql-avec-les-agr-gats">Analyse de bases de données SQL avec les agrégats</h2>
+<p><strong>Agrégat</strong> Fonction qui permet de regrouper les enregistrements d'une relation ayant les mêmes valeurs pour un attribut
+<em>SELECT Societe.Nom, AVG(Personne.Age) FROM Personne, Societe WHERE Personne.NomSoc = Societe.Nom GROUP BY Societe.Nom</em>
+On peut mettre plusieurs attributs derrière la clause Group pour trier selon les valeurs des 2 attributs</p>
+<p><strong>Fonctions d'agrégation</strong></p>
+<ul>
+<li>Count(Relation.propriété) = nombre de valeurs non nulles d'une propriété pour tous les tuples de la relation</li>
+<li>Sum(Relation.propriété) = Les sommes des valeurs d'une proprété des tuples d'une relation</li>
+<li>Avg(Relation.propriété) = la moyenne des valeurs d'une proprété des tuples</li>
+<li>Min(Relation.propriété) = la plus petite valeurs d'une propriété de la relation</li>
+<li>Max(Relation.propriété) = la plus grande valeur d'une propriété de la relation.</li>
+</ul>
+<p>On peut appliquer plusieurs fonction dans une seule requête SQL, si on applique des des fonction, on retourne un tuple unique</p>
+<p><strong>Restriction</strong>  Après le GROUP BY on peut rajouter une clause HAVING qui défini une condition sur les tuples à prendre en compte.</p>
+<p><strong>Ordre de résolution d'un requête SQL</strong></p>
+<ul>
+<li>FROM</li>
+<li>WHERE</li>
+<li>GROUP BY</li>
+<li>HAVING</li>
+<li>SELECT</li>
+<li>ORDER BY</li>
+</ul>
+<h2 id="vues-et-gestion-des-droits">Vues et gestion des droits</h2>
+<p><strong>Vues</strong>: chaque application ne voit que les parties qui la concerne (+ simple et + sécurisé)</p>
+<p><strong>CREATE VIEW</strong> nom_de_vue nom_des_colones AS requête_SQL
+Une vue peut avoir comme source une autre vue.
+Une vue permet de restituer un héritage</p>
+<p><strong>Héritage</strong></p>
+<ul>
+<li><p>héritage par référence :</p>
+<ul>
+<li>Classe1(#a,b)</li>
+<li>Classe2(#a=&gt;Classe1,c,d) avec c KEY</li>
+<li>Classe3(#a=&gt;Classe1,e,f) avec e KEY</li>
+<li>vClasse2=jointure(Classe1,Classe2,a=a)</li>
+<li>vClasse3=jointure(Classe1,Classe3,a=a)</li>
+</ul>
+</li>
+<li><p>héritage par les classes filles et classe mère abstraite</p>
+<ul>
+<li>Classe2(#a,b,c,d) avec c KEY</li>
+<li>Classe3(#a,b,e,f) avec e KEY</li>
+<li>vClasse1=Union(Projection(Classe2,a,b),Projection(Classe3,a,b))</li>
+</ul>
+</li>
+<li><p>héritage par les classes filles, classe mère non abstraite
+  -Classe1(#a,b)</p>
+<ul>
+<li>Classe2(#a,b,c,d) avec c KEY</li>
+<li>Classe3(#a,b,e,f) avec e KEY</li>
+<li>vClasse1=Union(Union(Classe1,Projection(Classe2,a,b)),Projection(Classe3,a,b))</li>
+</ul>
+</li>
+<li><p>héritage par la classe mère</p>
+<ul>
+<li>Classe1(#a,b,c,d,e,f,t:{1,2,3}) avec c UNIQUE et e UNIQUE</li>
+<li>vClasse1=projection(restriction(Classe1,t=1),a,b)</li>
+<li>vClasse2=projection(restriction(Classe1,t=2),a,b,c,d)</li>
+<li>vClasse3=projection(restriction(Classe1,t=3),a,b,e,f)</li>
+</ul>
+</li>
+</ul>
+<p>Si on peut mettre en place une méthode par une requête SQL, on la met en place à travers une vue.</p>
+<p><strong>Les droits</strong></p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>-&nbsp;GRANT&nbsp;liste_de_droits&nbsp;ON&nbsp;table&nbsp;TO&nbsp;utilisateur&nbsp;[WITH&nbsp;GRANT&nbsp;OPTION]</span></span></div></pre><p>Les droits sont SELECT (droits de lecture), INSERT, DELETE, UPDATE, ALTER (le tout = ALL PRIVILEGES)</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>-&nbsp;REVOKE&nbsp;liste_de_droits&nbsp;ON&nbsp;table&nbsp;FROM&nbsp;utilisateur</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>-&nbsp;CREATE&nbsp;USER&nbsp;nom</span></span></div></pre><h2 id="th-orie-de-la-normalisation-relationelle">Théorie de la normalisation relationelle</h2>
+<p><strong>dépendance fonctionelle</strong> x-&gt;y définit que pour une valeur de x on aura toujours la même valeur de y.</p>
+<p><strong>axiomes d'Armstrong</strong></p>
+<ul>
+<li>réflexivité : XY-&gt;XY et XY-&gt;X et XY-&gt;Y</li>
+<li>augmentation : X-&gt;Y =&gt; XZ-&gt;YZ</li>
+<li>transitivité : X-&gt;Y et Y-&gt;Z =&gt; X-&gt;Z</li>
+<li>pseudo-transitivité : x-&gt;Y et WY-&gt;Z =&gt; WX-&gt;Z</li>
+<li>union : X-&gt;Y et X-&gt;Z =&gt; X-&gt;YZ</li>
+<li>décomposition : X-&gt;YZ =&gt; X-&gt;Z et X-&gt;Y</li>
+</ul>
+<p><strong>DF élémentaire</strong> AB-&gt;C est élementaire si ni A ni B pris individuellement ne peuvent déterminer C et C doit être atomique
+Pour rendre une DF élementaire, on supprimer celles triviales (AB-&gt;A) on décompose les DF non élémentaire (AB-&gt;CD =&gt; AB-&gt;C, AB-&gt;D)</p>
+<p><strong>Fermeture transitive</strong> notée F+ : toutes les DFE qu'on peut trouver par transitivité</p>
+<p><strong>Couverture minimale</strong> ensemble minimale des DFE qui permet de générer toutes les DFE
+On peut construire un graph des DFE</p>
+<p><strong>clé</strong> une clé permet de déterminer tous les  attrbuts d'une relation et il n'y a pas de partie de la clé qui permet de déterminer tous les attributs de la table.
+Relation toute clé = l'ensemble des attributs de la table est la clé</p>
+<p><strong>Forme normale</strong></p>
+<ul>
+<li>première forme normale : possède une clé et tous ses attribut sont atomiques (une seule valeur dans chaque case)</li>
+<li>deuxième forme normale : est en 1NF et une partie de la clé ne détermine pas un attribut non clé.</li>
+<li>troisième forme normale : est en 2NF et tous les attributs non clé dépendent des attributs clé. (Pas d'attributs non clé qui déterminent un attribut non clé)</li>
+<li>Boyce-Codd : est en 3NF et tous les attributs sont de la forme clé-&gt;attribut non clé</li>
+</ul>
+<p><img width="400" src="/home/oceane/Documents/GI01/NA17/NA17-Fiches/NF.png"></p>
+<h2 id="conception-de-bases-de-donn-es-normalis-es">Conception de bases de données normalisées</h2>
+<p><strong>Décomposition 0NF -&gt; 1NF</strong> Décomposer en plusieurs attribut l'attribut non atomique pour les attributs composés ou en 2 relations pour les attributs multiévalués.</p>
+<p><strong>Décomposition 1NF -&gt; 3NF</strong> pour chaque DFE qui ne sont pas normalisées :</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>-&nbsp;la&nbsp;partie&nbsp;de&nbsp;gauche&nbsp;devient&nbsp;une&nbsp;clé&nbsp;primaire&nbsp;de&nbsp;R2&nbsp;et&nbsp;une&nbsp;clé&nbsp;étrangère&nbsp;de&nbsp;R1&nbsp;dans&nbsp;R2</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>-&nbsp;la&nbsp;partie&nbsp;de&nbsp;droite&nbsp;est&nbsp;enlevée&nbsp;de&nbsp;R1&nbsp;et&nbsp;ajoutée&nbsp;comme&nbsp;attribut&nbsp;simple&nbsp;dans&nbsp;R2</span></span></div></pre><p>Si on peut remplacer un attribut par une méthode sans perdre d'informations, le faire.</p>
+<p>Dans la conception de bases de données, rétro-concevoir l'UML après avoir déterminé la 3eme forme normale du problème.</p></body>
+</html>

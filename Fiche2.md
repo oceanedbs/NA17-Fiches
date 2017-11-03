@@ -1,26 +1,26 @@
 
-# NA17 - Fiche : CONCEPTION DE DONNEES RELATIONELLES
+# NA17 - Fiche : CONCEPTION DE DONNÉES RELATIONNELLES
 
 ## L'héritage
 
 **héritage :** transmission des propriété d'une classe à l'autre, permet de factoriser les classes. N'a pas de verbe associé à l'association, oralement on peut dire "est un"
 
-**classe abstraite** classe non instanciable, n'a de sens que si une autre classe en hérite. Elle correspond à un groupe général de classes (*ex : mamifères*)
+**classe abstraite** classe non instanciable, n'a de sens que si une autre classe en hérite. Elle correspond à un groupe général de classes (*ex : mammifères*)
 
 **héritage complet :** les classes filles n'ont aucunes caractéristiques qui leurs sont propres. Elles ont les même attributs
 
 **héritage presque complet :** les classes filles ont le même nombre d'attributs et aucune autre association leur est lié.
 
-**héritage exclusif :** l'objet instancié appartiet à une seule des classes hérités.
+**héritage exclusif :** l'objet instancié appartient à une seule des classes hérités.
 
-**héritage non exclusif :** un objet peut appartenir aux 2 clases héritées.
+**héritage non exclusif :** un objet peut appartenir aux 2 classes héritées.
 
-**héritage multiple :** une classe fille peut ériter de plusieurs de plusieurs classes mères
+**héritage multiple :** une classe fille peut hériter de plusieurs de plusieurs classes mères
 ATTENTION : toujours justifier l'utilisation de l'héritage multiple
 
 On peut transformer un héritage en associations : 1:1 --- 0:1 ou 1:1 --- 1:1
 
-## Transformation de l'héritage en relationel
+## Transformation de l'héritage en relationnel
 
 **Transformation de l'héritage**
 - référence entre la classe mère et la classe fille
@@ -74,23 +74,26 @@ ATTENTION : un héritage non exclusif ne doit jamais être traité par les class
 
 => voir fiche papier
 
-## Algèbre relationelle
+## Algèbre relationnelle
 
 **Projection** Affiche seulement les attributs précisés
-**Restriction** Selectionne seulement certains objets d'une table en fonction d'une condition
+**Restriction** Sélectionne seulement certains objets d'une table en fonction d'une condition
 **Produit** : a chaque ligne de table 1, associe chacune des lignes de table2
 **Jointure** : Joindre 2 tables sur une condition
 
-**Jointure Naturelle :** les attributs de la table 1 et la table 2 ont le meme nom d'attributs donc pas besoin de les spécifier. La codition de jointure est implicite.
+**Jointure Naturelle :** les attributs de la table 1 et la table 2 ont le même nom d'attributs donc pas besoin de les spécifier. La condition de jointure est implicite.
 
-**Jointure Externe :** renvoie les tuples de la jointure 1 et 2 avec les attributs nulls si pas de correspondance
+**Jointure Externe :** renvoie les tuples de la jointure 1 et 2 qui ne correspondent pas à la jointure avec les attributs nulls si pas de correspondance
 <img src="jointure_externe.png" width="400" />
-- gauche : tuples de la premiere relation et les tuples de la jointure
+- gauche : tuples de la première relation et les tuples de la jointure
 - droite : tuple de la seconde relation et les tuples de la jointure
 
 Ces jointures servent à trouver des tuples qui ne sont pas référencés dans une autre table
 
 <img src="enregistrements_non-joints.png" width="400"  />
+<img src="jointure.png" width="400"  />
+
+Par Arbeck — Travail personnel, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=25555796
 
 **Union Externe** : permet de faire l'union de 2 relations n'ayant pas le schéma, les attributs non évalués sont mis à NULL
 
@@ -196,6 +199,8 @@ ATTENTION : cela doit avoir du sens selon le contexte !
 - totalité {T} ou{OR}
 - partition {XT} ou {+} ou {XOR} ou {P}
 
+<img src="contraintes.png" width="500" />
+
 **Contrainte sur les attributs**
 - {UNIQUE}
 - {FROZEN} = la valeur ne peut pas changer
@@ -250,7 +255,7 @@ ATTENTION : cela doit avoir du sens selon le contexte !
 		- de plus si l'héritage est exclusif : (T=2 AND c),  (T=3 AND e), NOT (c AND e), NOT (c AND f)
 
 
-# Analyse de bases de données SQL avec les agrégats
+## Analyse de bases de données SQL avec les agrégats
 
 **Agrégat** Fonction qui permet de regrouper les enregistrements d'une relation ayant les mêmes valeurs pour un attribut
 _SELECT Societe.Nom, AVG(Personne.Age) FROM Personne, Societe WHERE Personne.NomSoc = Societe.Nom GROUP BY Societe.Nom_
@@ -276,7 +281,7 @@ On peut appliquer plusieurs fonction dans une seule requête SQL, si on applique
 - ORDER BY
 
 
-#Vues et gestion des droits
+## Vues et gestion des droits
 
 **Vues**: chaque application ne voit que les parties qui la concerne (+ simple et + sécurisé)
 
@@ -318,7 +323,7 @@ Les droits sont SELECT (droits de lecture), INSERT, DELETE, UPDATE, ALTER (le to
 	- REVOKE liste_de_droits ON table FROM utilisateur
 	- CREATE USER nom
 
-# Théorie de la normalisation relationelle
+## Théorie de la normalisation relationelle
 **dépendance fonctionelle** x->y définit que pour une valeur de x on aura toujours la même valeur de y.
 
 **axiomes d'Armstrong**
@@ -329,8 +334,12 @@ Les droits sont SELECT (droits de lecture), INSERT, DELETE, UPDATE, ALTER (le to
 - union : X->Y et X->Z => X->YZ
 - décomposition : X->YZ => X->Z et X->Y
 
-**DF élémentaire** AB->C est élementaire si ni A ni B pris individuellement ne peuvent déterminer C et C doit être atomique
+**DF élémentaire** AB->C est élementaire si ni A ni B pris individuellement ne peuvent déterminer /être déterminé par C et C doit être atomique
 Pour rendre une DF élementaire, on supprimer celles triviales (AB->A) on décompose les DF non élémentaire (AB->CD => AB->C, AB->D)
+
+**DF simple** A->B et B est composé d'un unique attribut
+
+**DF directe** pour A->B il existe C tel que A->C et C->B
 
 **Fermeture transitive** notée F+ : toutes les DFE qu'on peut trouver par transitivité
 
@@ -342,13 +351,13 @@ Relation toute clé = l'ensemble des attributs de la table est la clé
 
 **Forme normale**
 - première forme normale : possède une clé et tous ses attribut sont atomiques (une seule valeur dans chaque case)
-- deuxième forme normale : est en 1NF et une partie de la clé ne détermine pas un attribut non clé.
+- deuxième forme normale : est en 1NF et une partie de la clé ne détermine pas un attribut non clé. (valable pour toutes les clés candidates)
 - troisième forme normale : est en 2NF et tous les attributs non clé dépendent des attributs clé. (Pas d'attributs non clé qui déterminent un attribut non clé)
 - Boyce-Codd : est en 3NF et tous les attributs sont de la forme clé->attribut non clé
 
 <img src="NF.png" width="400" />
 
-#Conception de bases de données normalisées
+## Conception de bases de données normalisées
 
 **Décomposition 0NF -> 1NF** Décomposer en plusieurs attribut l'attribut non atomique pour les attributs composés ou en 2 relations pour les attributs multiévalués.
 
@@ -359,3 +368,22 @@ Relation toute clé = l'ensemble des attributs de la table est la clé
 Si on peut remplacer un attribut par une méthode sans perdre d'informations, le faire.
 
 Dans la conception de bases de données, rétro-concevoir l'UML après avoir déterminé la 3eme forme normale du problème.
+
+## Application
+
+CREATE TABLE Personnage (
+designation VARCHAR PRIMARY KEY,
+prix DECIMAL NOT NULL,
+identite VARCHAR,
+genre VARCHAR(12) CHECK (genre='superhéros' OR genre='supervillain')
+);
+
+INSERT INTO Personnage (designation, prix) VALUES ('Superman',15);
+INSERT INTO Personnage (designation, prix) VALUES ('Batman',12);
+INSERT INTO Personnage (designation, prix) VALUES ('Superchild',12);
+
+CREATE VIEW vfigurine AS
+SELECT designation, prix FROM Personnage;
+
+CREATE USER customer WITH ENCRYPTED PASSWORD 'public';
+GRANT SELECT ON vfigurine TO customer;
